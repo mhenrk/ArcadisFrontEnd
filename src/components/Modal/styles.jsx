@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ModalContainer = styled.div`
-    width: 450px;
+    width: 700px;
     height: 500px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     padding: 15px;
     position: "absolute";
@@ -12,4 +12,5 @@ export const ModalContainer = styled.div`
     background-color: #fff;
     border-radius: 10px;
     border: "2px solid #000";
+    outline: none;
 `;

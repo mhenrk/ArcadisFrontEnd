@@ -4,16 +4,21 @@ import { ModalContainer } from "./styles";
 import { BotaoRetangular, BotaoCircular } from "./BotoesModal";
 
 export default function BasicModal(props) {
+
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+
+  const handleOpen = () => {
+    setOpen(true);
+    if (props.onAfterOpen) props.onAfterOpen();
+  };
   const handleClose = () => setOpen(false);
 
   return (
     <div>
       {props.btnType === "btn" ? (
-      <BotaoRetangular btnModalName={props.btnName} btnOnClick={handleOpen} />
+        <BotaoRetangular btnModalName={props.btnName} btnOnClick={handleOpen} />
       ) : (
-      <BotaoCircular onClick={handleOpen} />
+        <BotaoCircular onClick={handleOpen} />
       )}
       <Modal
         open={open}

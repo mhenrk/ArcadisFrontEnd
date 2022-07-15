@@ -10,7 +10,7 @@ export const Container = styled.div`
     button {
         width: 100%;
         height: 50px;
-        background: red;
+        background: #a82da8;
         color: white;
         border: none;
         padding: 0 10px;

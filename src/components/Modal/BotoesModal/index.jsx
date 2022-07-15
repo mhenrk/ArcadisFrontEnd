@@ -35,3 +35,15 @@ export const BotaoSubmit = (props) => {
     </Container>
   )
 }
+
+export const BtnParams = (props) => {
+  return (
+    <Fab 
+      onClick={props.onClick} 
+      size="small"
+      color="primary" 
+      aria-label="add">
+      <AddIcon />
+    </Fab>
+  );
+};
