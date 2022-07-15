@@ -1,7 +1,7 @@
 ## PROJETO DESENVOLVEDOR PLENO FULLSTACK ARCADIS
 
 ## DESCRIÇÃO
-Projeto Frontend, consiste em consumir uma API NodeJS de cadastro de Pontos e Parametros, a aplicação permite cadastrar um ponto (único), cada ponto pode ter um ou mais pontos, sendo que é possivel pesquisar pontos, pesquisar parametros, visualizar pontos que violam a legislação vigente e a listagem completa de pontos e seus respectivos parametros.
+Projeto Frontend, consiste em consumir uma API NodeJS de cadastro de Pontos e Parametros, a aplicação permite cadastrar um ponto (único) onde cada ponto pode ter um ou mais parametros, sendo que é possivel pesquisar pontos, pesquisar parametros, visualizar pontos que violam a legislação vigente e a listagem completa de pontos e seus respectivos parametros.
 
 O projeto foi estruturado criado através da ferramenta 'build tool' `vite` e componentes da biblioteca `material ui`.
 
