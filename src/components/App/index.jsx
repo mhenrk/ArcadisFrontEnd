@@ -24,7 +24,7 @@ function App() {
   const [ypos, setYpos] = useState("");
 
   const [rowData, setRowData] = useState([]);
-  const [pesquisar, setPesquisar] = useState("")
+  const [pesquisar, setPesquisar] = useState("");
 
   const getParametrosViolados = async () => {
     try {
@@ -39,7 +39,6 @@ function App() {
   };
 
   const pesquisaParametros = async (e) => {
-
     e.preventDefault();
 
     try {
@@ -105,7 +104,9 @@ function App() {
     e.preventDefault();
 
     try {
-      const dado = await axios.get(`http://localhost:6001/ponto/pesquisar?nome=${ponto}`);
+      const dado = await axios.get(
+        `http://localhost:6001/ponto/pesquisar?nome=${ponto}`
+      );
 
       if (dado.status === 200) {
         setPonto("");
@@ -116,17 +117,16 @@ function App() {
     }
   };
 
-  return (  
+  return (
     <Container>
       <div className="topbar">
-        
         <BotaoRetangular
           btnModalName="Pontos e Parametros"
           btnOnClick={getPontosParametros}
         />
 
-        <BasicModal 
-          btnType="btn" 
+        <BasicModal
+          btnType="btn"
           onAfterOpen={getParametrosViolados}
           btnName="Pontos Violados"
         >
@@ -192,22 +192,26 @@ function App() {
         </BasicModal>
       </div>
 
-      <div className="wrapper">
-        <div className="search-container">
-          <div className="leftside"/>
-          <div className="search">
-            <InputSearch
-              inputType="text"
-              inputValue={ponto}
-              inputPlaceholder="Pesquisar Ponto"
-              inputOnChange={(e) => setPonto(e.target.value)}
-              inputNome="ponto"
-              inputId="ponto"
-              btnClick={pesquisaPonto}
-            />
-          </div>
-        
+      <div className="doc">
+        <a href="http://localhost:6001/api-docs">Documentação</a>
+      </div>
+
+      <div className="search-docs">
+
+        <div className="search">
+          <InputSearch
+            inputType="text"
+            inputValue={ponto}
+            inputPlaceholder="Pesquisar Ponto"
+            inputOnChange={(e) => setPonto(e.target.value)}
+            inputNome="ponto"
+            inputId="ponto"
+            btnClick={pesquisaPonto}
+          />
         </div>
+      </div>
+
+      <div className="tabela">
         <CollapsibleTable rows={rows} />
       </div>
     </Container>
