@@ -9,9 +9,10 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  width: 1280px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  margin: 30px auto;
+  align-items: center;
   font-family: "Montserrat";
   font-size: 16px;
 }

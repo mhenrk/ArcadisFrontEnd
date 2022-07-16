@@ -26,9 +26,9 @@ function App() {
   const [rowData, setRowData] = useState([]);
   const [pesquisar, setPesquisar] = useState("")
 
-  const getPontosViolados = async () => {
+  const getParametrosViolados = async () => {
     try {
-      const dado = await axios.get("http://localhost:6001/violacoes");
+      const dado = await axios.get("http://localhost:6001/parametro/violacoes");
 
       if (dado.status === 200) {
         setRowData(dado.data.body);
@@ -44,7 +44,7 @@ function App() {
 
     try {
       const dado = await axios.get(
-        `http://localhost:6001/parametro?nome=${pesquisar}`
+        `http://localhost:6001/parametro/pesquisar?nome=${pesquisar}`
       );
 
       if (dado.status === 200) {
@@ -58,7 +58,7 @@ function App() {
 
   const listarParametros = async (e) => {
     try {
-      const dado = await axios.get(`http://localhost:6001/parametros`);
+      const dado = await axios.get(`http://localhost:6001/parametro`);
 
       if (dado.status === 200) {
         setParametro("");
@@ -91,7 +91,7 @@ function App() {
 
   const getPontosParametros = async () => {
     try {
-      const dado = await axios.get("http://localhost:6001/mostrar");
+      const dado = await axios.get("http://localhost:6001/ponto");
 
       if (dado.status === 200) {
         setRows(dado.data.body);
@@ -105,7 +105,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const dado = await axios.get(`http://localhost:6001/ponto?nome=${ponto}`);
+      const dado = await axios.get(`http://localhost:6001/ponto/pesquisar?nome=${ponto}`);
 
       if (dado.status === 200) {
         setPonto("");
@@ -127,7 +127,7 @@ function App() {
 
         <BasicModal 
           btnType="btn" 
-          onAfterOpen={getPontosViolados}
+          onAfterOpen={getParametrosViolados}
           btnName="Pontos Violados"
         >
           <TableData rows={rowData} />

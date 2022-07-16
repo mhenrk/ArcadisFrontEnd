@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100%;
+    min-width: 980px;
     margin: 0 auto;
     border: 1px solid rgba(0,0,0,0.2);    
     border-radius: 5px;
@@ -12,6 +12,7 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .wrapper {

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.form`
-    width: 80%;
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
