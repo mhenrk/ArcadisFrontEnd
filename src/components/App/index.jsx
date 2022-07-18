@@ -128,7 +128,7 @@ function App() {
         <BasicModal
           btnType="btn"
           onAfterOpen={getParametrosViolados}
-          btnName="Pontos Violados"
+          btnName="Parametros Violados"
         >
           <TableData rows={rowData} />
         </BasicModal>
