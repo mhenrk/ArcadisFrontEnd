@@ -24,13 +24,14 @@ function Row({ row }) {
   const [valor, setValor] = useState("");
   const [dataColeta, setDataColeta] = useState("");
   const [pontoId, setPontoId] = useState("");
+  const [rows, setRows] = useState([])
   const [open, setOpen] = React.useState(false);
 
   const cadastrarNovoParametro = async (e) => {
     e.preventDefault();
 
     const dataConvertida = new Date(dataColeta);
-  
+
     try {
       const dado = await axios.post("http://localhost:6001/parametro", {
         nome: nomeParam,

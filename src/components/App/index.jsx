@@ -24,11 +24,11 @@ function App() {
   const [ypos, setYpos] = useState("");
 
   const [rowData, setRowData] = useState([]);
-  const [pesquisar, setPesquisar] = useState("")
+  const [pesquisar, setPesquisar] = useState("");
 
-  const getPontosViolados = async () => {
+  const getParametrosViolados = async () => {
     try {
-      const dado = await axios.get("http://localhost:6001/violacoes");
+      const dado = await axios.get("http://localhost:6001/parametro/violacoes");
 
       if (dado.status === 200) {
         setRowData(dado.data.body);
@@ -39,12 +39,11 @@ function App() {
   };
 
   const pesquisaParametros = async (e) => {
-
     e.preventDefault();
 
     try {
       const dado = await axios.get(
-        `http://localhost:6001/parametro?nome=${pesquisar}`
+        `http://localhost:6001/parametro/pesquisar?nome=${pesquisar}`
       );
 
       if (dado.status === 200) {
@@ -58,7 +57,7 @@ function App() {
 
   const listarParametros = async (e) => {
     try {
-      const dado = await axios.get(`http://localhost:6001/parametros`);
+      const dado = await axios.get(`http://localhost:6001/parametro`);
 
       if (dado.status === 200) {
         setParametro("");
@@ -91,7 +90,7 @@ function App() {
 
   const getPontosParametros = async () => {
     try {
-      const dado = await axios.get("http://localhost:6001/mostrar");
+      const dado = await axios.get("http://localhost:6001/ponto");
 
       if (dado.status === 200) {
         setRows(dado.data.body);
@@ -105,7 +104,9 @@ function App() {
     e.preventDefault();
 
     try {
-      const dado = await axios.get(`http://localhost:6001/ponto?nome=${ponto}`);
+      const dado = await axios.get(
+        `http://localhost:6001/ponto/pesquisar?nome=${ponto}`
+      );
 
       if (dado.status === 200) {
         setPonto("");
@@ -116,18 +117,17 @@ function App() {
     }
   };
 
-  return (  
+  return (
     <Container>
       <div className="topbar">
-        
         <BotaoRetangular
           btnModalName="Pontos e Parametros"
           btnOnClick={getPontosParametros}
         />
 
-        <BasicModal 
-          btnType="btn" 
-          onAfterOpen={getPontosViolados}
+        <BasicModal
+          btnType="btn"
+          onAfterOpen={getParametrosViolados}
           btnName="Pontos Violados"
         >
           <TableData rows={rowData} />
@@ -192,22 +192,26 @@ function App() {
         </BasicModal>
       </div>
 
-      <div className="wrapper">
-        <div className="search-container">
-          <div className="leftside"/>
-          <div className="search">
-            <InputSearch
-              inputType="text"
-              inputValue={ponto}
-              inputPlaceholder="Pesquisar Ponto"
-              inputOnChange={(e) => setPonto(e.target.value)}
-              inputNome="ponto"
-              inputId="ponto"
-              btnClick={pesquisaPonto}
-            />
-          </div>
-        
+      <div className="doc">
+        <a href="http://localhost:6001/api-docs">Documentação</a>
+      </div>
+
+      <div className="search-docs">
+
+        <div className="search">
+          <InputSearch
+            inputType="text"
+            inputValue={ponto}
+            inputPlaceholder="Pesquisar Ponto"
+            inputOnChange={(e) => setPonto(e.target.value)}
+            inputNome="ponto"
+            inputId="ponto"
+            btnClick={pesquisaPonto}
+          />
         </div>
+      </div>
+
+      <div className="tabela">
         <CollapsibleTable rows={rows} />
       </div>
     </Container>

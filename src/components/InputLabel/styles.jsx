@@ -26,6 +26,10 @@ export const Container = styled.div`
         border: none;
         border-bottom: 5px solid rgba(0,0,0,0.2);
         margin: 5px 0px;
+
+        &:focus {
+            border-bottom: 5px solid #a82da8;;
+        }
     }
 `
 
@@ -59,6 +63,10 @@ export const SearchContainer = styled.div`
         border: none;
         border-bottom: 5px solid rgba(0,0,0,0.2);
         margin: 5px;
+
+        &:focus {
+            border-bottom: 5px solid #a82da8;;
+        }
     }
 
     button {
@@ -76,5 +84,9 @@ export const SearchContainer = styled.div`
         padding: 10px;
         font-weight: bold;
         font-size: 14px;
+        
+        &:hover {
+            background: #7c247c;
+        }
     }
 `
